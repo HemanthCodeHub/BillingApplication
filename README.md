@@ -1,36 +1,17 @@
-# Discount Calculator
+# Billing Calculator Application
 
-## Overview
+This application is used to calculate the total bill and discount based on
+total purchase amount and customer type
+This application exposes the following REST Endpoint :-
+* GET /billing - fetch the <code>Bill</code> object based on inputs
 
-This project is a Java application built using Maven. It is an application designed to calculate customer's total billing 
-after applying the discounts based off of Customer Type and Purchase Amount Slab.
+## Running Application
+* We can run the application from any IDE after importing the application as maven project.
+* There is no special instructions needed to run this application in Intellij/Eclipse, we can simply run the `main` method present in `BillingCalculatorApplication` class.
+* Once the application is started, we can access the following endpoints :-
+  * http://localhost:8080/billing?customerType=REGULAR&totalPurchaseAmount=8000
+  * http://localhost:8080/billing?customerType=PREMIUM&totalPurchaseAmount=8000
 
-- Group ID: com.test
-- Artifact ID: dcapp
-- Version: 0.0.1-SNAPSHOT
-- Packaging: jar
-
-The project uses the Maven compiler plugin with the following configuration:
-
-- Source and target compatibility: Java 11
-
-The project also includes a dependency on JUnit for testing purposes. The JUnit version used is 4.13.1.
-
-## Installation
-
-To build and run the project, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/HemanthCodeHub/DiscountCalculatorApp.git`
-2. Navigate to the project directory: `cd dcapp`
-3. Build the project: `mvn clean install`
-
-## Usage
-Run the project: `java -jar target/dcapp-0.0.1-SNAPSHOT.jar`
-
-## Testing
-
-The project includes JUnit tests for verifying the functionality of the code. To run the tests, use the following command:
-
-```bash
-mvn test
-```
+## Assumptions
+* I have assumed that we don't have to worry about the database as part of this assessment, otherwise the scope would have increased further.
+* In interest of time, I have not put any validation to check the input (i.e. if customer type and/or amount is valid or not).
