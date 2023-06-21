@@ -4,32 +4,32 @@ import java.util.Objects;
 
 public class Bill {
 
-    private final CustomerType customerType;
+    private Customer customer;
     private final double totalPurchaseAmount;
     private final double totalBillAfterDiscount;
     private final double totalDiscount;
 
-    public Bill(CustomerType customerType, double totalPurchaseAmount, double totalDiscount, double totalBillAfterDiscount) {
-        this.customerType = customerType;
+    public Bill(Customer customer, double totalPurchaseAmount, double totalDiscount, double totalBillAfterDiscount) {
+        this.customer = customer;
         this.totalPurchaseAmount = totalPurchaseAmount;
         this.totalDiscount = totalDiscount;
         this.totalBillAfterDiscount = totalBillAfterDiscount;
     }
 
-    public CustomerType getCustomerType() {
-        return customerType;
+    public Customer getCustomer() {
+        return customer;
     }
 
     public double getTotalPurchaseAmount() {
         return totalPurchaseAmount;
     }
 
-    public double getTotalDiscount() {
-        return totalDiscount;
-    }
-
     public double getTotalBillAfterDiscount() {
         return totalBillAfterDiscount;
+    }
+
+    public double getTotalDiscount() {
+        return totalDiscount;
     }
 
     @Override
@@ -37,18 +37,18 @@ public class Bill {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Bill bill = (Bill) o;
-        return Double.compare(bill.totalPurchaseAmount, totalPurchaseAmount) == 0 && Double.compare(bill.totalBillAfterDiscount, totalBillAfterDiscount) == 0 && Double.compare(bill.totalDiscount, totalDiscount) == 0 && customerType == bill.customerType;
+        return Double.compare(bill.totalPurchaseAmount, totalPurchaseAmount) == 0 && Double.compare(bill.totalBillAfterDiscount, totalBillAfterDiscount) == 0 && Double.compare(bill.totalDiscount, totalDiscount) == 0 && Objects.equals(customer, bill.customer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerType, totalPurchaseAmount, totalBillAfterDiscount, totalDiscount);
+        return Objects.hash(customer, totalPurchaseAmount, totalBillAfterDiscount, totalDiscount);
     }
 
     @Override
     public String toString() {
         return "Bill{" +
-                "customerType=" + customerType +
+                "customer=" + customer +
                 ", totalPurchaseAmount=" + totalPurchaseAmount +
                 ", totalBillAfterDiscount=" + totalBillAfterDiscount +
                 ", totalDiscount=" + totalDiscount +
