@@ -1,4 +1,4 @@
-# Calculator Application
+# Billing Application
 
 This application is used to calculate the total bill and discounted amount based on
 customer id and transaction made by the customers.
